@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PermutationController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		<table class="table">
+			<thead>
+				<tr>
+
+					<th scope="col">Auteur</th>
+					<th scope="col">Localite actuelle</th>
+					<th scope="col">Localite souhaiter</th>
+					<th scope="col">Voir</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for permutation in permutations %}
+					<tr>
+						<td>{{ permutation.auteur }}</td>
+						<td>{{ permutation.auteur.localite }}</td>
+						<td>{{ permutation.destination }}</td>
+						<td>
+							<a class="btn btn-info" href="{{ path('permutation_show', { id: permutation.id }) }}" class="btn btn-sm btn-info">Voir</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+{% endblock %}

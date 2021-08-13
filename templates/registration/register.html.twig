@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Insciption
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="col-md-6 offset-3">
+			{% for flashError in app.flashes('verify_email_error') %}
+				<div class="alert alert-danger" role="alert">{{ flashError }}</div>
+			{% endfor %}
+
+			<h1 class="mb-5 text-center">Inscription</h1>
+
+			{{ form_start(registrationForm) }}
+			<div class="mb-3">{{ form_row(registrationForm.nom, {
+            label: 'nom', 'attr': {'class': 'form-control'}
+        }) }}</div>
+
+			<div class="mb-3">{{ form_row(registrationForm.prenoms, {
+            label: 'prenoms', 'attr': {'class': 'form-control'}
+        }) }}</div>
+
+			<div class="mb-3">{{ form_row(registrationForm.tel, {
+            label: 'telephone', 'attr': {'class': 'form-control'}
+        }) }}</div>
+
+			<div class="mb-3">{{ form_row(registrationForm.matricule, {
+            label: 'matricule', 'attr': {'class': 'form-control'}
+        }) }}</div>
+
+			<div class="mb-3">{{ form_row(registrationForm.localite, {
+            label: 'localite', 'attr': {'class': 'form-control'}
+        }) }}</div>
+
+			<div class="mb-3">{{ form_row(registrationForm.email, {
+            label: 'email', 'attr': {'class': 'form-control'}
+        }) }}</div>
+
+
+			<div class="mb-3">{{ form_row(registrationForm.plainPassword, {
+            label: 'mot de passe', 'attr': {'class': 'form-control'}
+        }) }}</div>
+
+			<button type="submit" class="btn btn-primary col-md-12 mx-auto">Inscription</button>
+			{{ form_end(registrationForm) }}
+			<a class="col-md-12" href="{{ path('app_login') }}">vous avez deja un compte.Connectez-vous</a>
+		</div>
+	</div>
+
+{% endblock %}

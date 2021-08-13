@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+	<div class="container mt-5">
+		<table class="table table-striped">
+			<tbody>
+				<tr>
+					<th scope="row">Nom:</th>
+					<td>{{ permutation.auteur.nom }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Prénoms:</th>
+					<td>{{ permutation.auteur.prenoms }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Email:</th>
+					<td>{{ permutation.auteur.email }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Localite</th>
+					<td>{{ permutation.auteur.localite }}</td>
+				</tr>
+				<tr>
+					<th scope="row">Localite Desire</th>
+					<td>{{ permutation.destination }}</td>
+				</tr>
+			</tbody>
+		</table>
+		<center>
+			<div class="row col-md-4 col-offset-4">
+				<div class="col-md-5">
+					<a class="btn btn-secondary" href="">Retour</a>
+				</div>
+				<div class="col-md-5">
+
+					<input type="submit" class="btn btn-success" value="accepter">
+
+				</div>
+
+
+			</div>
+		</center>
+
+
+	</div>
+{% endblock %}
