@@ -80,29 +80,33 @@ class PermutationController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
 
-            $permutation->setStatut(true);
+
             $form = $this->getDoctrine()->getManager();
 
-
+            $permutation->setStatut(true);
             $form->persist($permutation);
             $form->flush();
+            $this->addFlash('success', "vous avez la permutation avec succes");
+
+            return $this->redirectToRoute('dashboard');
         }
 
-        return $this->render('permutation/show.html.twig', [
 
+        return $this->render('permutation/show.html.twig', [
+            'form' => $form->createView(),
             'permutation' => $permutation
 
         ]);
     }
 
-    // /**
-    //  * @Route("/view/{id}", name= "permutation_view")
-    //  */
+    /**
+     * @Route("/view/{id}", name= "permutation_view")
+     */
 
-    // public function view()
-    // {
-    //     return $this->render('permutation/print.html.twig', []);
-    // }
+    public function view()
+    {
+        return $this->render('permutation/print.html.twig', []);
+    }
 }

@@ -20,7 +20,8 @@
 			<tbody>
 				{% for permutation in permutations %}
 					<tr>
-						<td>{{ permutation.auteur }}</td>
+						<td>{{ permutation.auteur }}
+							{{ permutation.auteur.prenoms }}</td>
 						<td>{{ permutation.auteur.localite }}</td>
 						<td>{{ permutation.destination }}</td>
 						<td>
