@@ -48,7 +48,6 @@ class PermutationController extends AbstractController
 
 
         $form->handleRequest($request);
-        //dd($permutation);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -60,7 +59,6 @@ class PermutationController extends AbstractController
 
             return $this->redirectToRoute('permutation');
         }
-        // dd($permutation);
         return $this->render('permutation/new.html.twig', [
             'form' => $form->createView(),
             'permutation' => $permutation
@@ -68,29 +66,28 @@ class PermutationController extends AbstractController
     }
     /**
      * @Route("/show/{id}", name="permutation_show")
-     * @ParamConverter("id", options={"mapping": {" id " : "permutation.id"}})
+     * @ParamConverter("id", options={"mapping": {"id" : "permutation.id"}})
      */
 
     public function show(Request $request, Permutation $permutation)
     {
 
         $permutation->setInteresse($this->getUser());
-
         $form = $this->createForm(PermutationType::class, $permutation);
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
 
+            $permutation->setStatut(true);
 
             $form = $this->getDoctrine()->getManager();
 
-            $permutation->setStatut(true);
             $form->persist($permutation);
             $form->flush();
             $this->addFlash('success', "vous avez la permutation avec succes");
 
-            return $this->redirectToRoute('dashboard');
+            return $this->redirectToRoute('permutation');
         }
 
 
