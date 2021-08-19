@@ -37,11 +37,11 @@
 
 							<a class="nav-link active" href="{{ path('permutation') }}">Accueil</a>
 							<a class="nav-link active" href="{{ path('permutation_new') }}">Créer</a>
-							<a class="nav-link active" href="#">Imprimer</a>
+							<a class="nav-link active" href="{{ path('permutation_view') }}">Imprimer</a>
 							<a class="nav-link active" href="app_logout">Déconnexion</a>
 						{% else %}
 							<a class="nav-link active" href="{{ path('app_login') }}">connexion</a>
-							<a class="nav-link active" href="{{ path('app_register') }}">inscription</a>
+							<a class="nav-link active" href="/logout">inscription</a>
 						{% endif %}
 					</div>
 				</div>

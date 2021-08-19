@@ -4,24 +4,31 @@
 {% block body %}
 
 	<div class="container">
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-3">
-				<h3>Nom complet</h3>
-				<h3>Nom complet</h3>
+		<table class="table">
+			<thead>
+				<tr>
 
-				<h3>Nom complet</h3>
+					<th scope="col">Auteur</th>
+					<th scope="col">Localite actuelle</th>
+					<th scope="col">Localite souhaiter</th>
+					<th scope="col">Imprimer</th>
 
-				<h3>Nom complet</h3>
-
-				<h3>Nom complet</h3>
-				<h3>Nom complet</h3>
-				<h3>Nom complet</h3>
-
-			</div>
-			<div class="col-md-3"></div>
-			<div class="col-md-3"></div>
-		</div>
+				</tr>
+			</thead>
+			<tbody>
+				{% for permutation in permutations %}
+					<tr>
+						<td>{{ permutation.auteur }}
+							{{ permutation.auteur.prenoms }}</td>
+						<td>{{ permutation.auteur.localite }}</td>
+						<td>{{ permutation.destination }}</td>
+						<td>
+							<a class="btn btn-info" href="{{ path('permutation_print', { id: permutation.id }) }}" class="btn btn-sm btn-info">imprimer</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 	</div>
 
 {% endblock %}
