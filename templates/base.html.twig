@@ -12,6 +12,103 @@
 			{% block title %}ProjetTutoreG002 |
 			{% endblock %}
 		</title>
+		<style>
+			body {
+				margin: 0;
+				font-family: 'Montserrat', sans-serif;
+			}
+			header {
+				padding: 20px 0;
+				background: repeating-linear-gradient(45deg, #f0f2ed, #f0f2ed 20px, #f8f4eb 20px, #f8f4eb 40px);
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+			}
+			.container {
+				padding: 0 20px;
+				max-width: 960px;
+				margin: 0 auto;
+			}
+			.logo-box {
+				float: left;
+				margin-right: 20px;
+			}
+			.logo-box a {
+				outline: none;
+				display: block;
+			}
+			.logo-box img {
+				display: block;
+			}
+			nav {
+				overflow: hidden;
+			}
+			ul {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				float: right;
+			}
+			nav li {
+				display: inline-block;
+				margin-left: 25px;
+				height: 70px;
+				line-height: 70px;
+				transition: 0.5s linear;
+			}
+			nav a {
+				text-decoration: none;
+				display: block;
+				position: relative;
+				color: #868686;
+				text-transform: uppercase;
+			}
+			nav a:after {
+				content: "";
+				width: 0;
+				height: 2px;
+				position: absolute;
+				left: 0;
+				bottom: 15px;
+				background: #868686;
+				transition: width 0.5s linear;
+			}
+			nav a:hover:after {
+				width: 100%;
+			}
+
+			@media screen and(max-width: 660px) {
+				header {
+					text-align: center;
+				}
+				.logo-box {
+					float: none;
+					display: inline-block;
+					margin: 0 0 16px;
+				}
+				ul {
+					float: none;
+				}
+				nav li:first-of-type {
+					margin-left: 0;
+				}
+			}
+			@media screen and(max-width: 550px) {
+				nav {
+					overflow: visible;
+				}
+				nav li {
+					display: block;
+					margin: 0;
+					height: 40px;
+					line-height: 40px;
+				}
+				nav li:hover {
+					background: rgba(0, 0, 0, 0.1);
+				}
+				nav a:after {
+					content: none;
+				}
+			}
+		</style>
 		{% block stylesheets %}
 			{#{{ encore_entry_link_tags('app') }}#}
 		{% endblock %}
@@ -24,29 +121,41 @@
 	<body>
 
 
-		<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="#">ProjetTutoreG002</a>
-
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-					<div class="navbar-nav" style="font-weight: 200;float: right">
-						{% if app.user %}
-
-							<a class="nav-link active" href="{{ path('permutation') }}">Accueil</a>
-							<a class="nav-link active" href="{{ path('permutation_new') }}">Créer</a>
-							<a class="nav-link active" href="{{ path('permutation_view') }}">Imprimer</a>
-							<a class="nav-link active" href="app_logout">Déconnexion</a>
-						{% else %}
-							<a class="nav-link active" href="{{ path('app_login') }}">connexion</a>
-							<a class="nav-link active" href="/logout">inscription</a>
-						{% endif %}
-					</div>
+		<header>
+			<div class="container">
+				<div class="logo-box">
+					<a href="{{ path('permutation') }}">
+						<img width="150%" height="90px" style="padding-top:4px;" src="https://www.presidence.ci/wp-content/uploads/2016/06/Armoirie-C%C3%B4te-divoire.png">
+					</a>
 				</div>
+				<nav>
+					<ul>
+						{% if app.user %}
+							<li>
+								<a href="{{ path('permutation') }}">haccueil</a>
+							</li>
+							<li>
+								<a href="{{ path('permutation_new') }}">créer</a>
+							</li>
+							<li>
+								<a href="{{ path('permutation_view') }}">imprimer</a>
+							</li>
+							<li>
+								<a href="/logout">deconnexion</a>
+							</li>
+						{% else %}
+							<li>
+								<a href="{{ path('app_login') }}">connexion</a>
+							</li>
+							<li>
+								<a href="{{ path('app_register') }}">inscription</a>
+							</li>
+						{% endif %}
+					</ul>
+				</nav>
 			</div>
-		</nav>
+		</header>
+
 		{% block body %}{% endblock %}
 
 		<!-- Optional JavaScript; choose one of the two! --><!-- Option 1: Bootstrap Bundle with Popper --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

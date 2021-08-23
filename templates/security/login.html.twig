@@ -2,10 +2,32 @@
 
 {% block title %}Connexion
 {% endblock %}
+{% block stylesheets %}
+	<style>
+		/* Centered text */
+		.centered {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+
+		}
+		.contain {
+			position: relative;
+			text-align: center;
+			color: yellow;
+			font-weight: bold;
+		}
+	</style>
+{% endblock %}
 
 {% block body %}
 	<div class="container">
-		<img width="100%" height="300px" src="{{ asset('images/enfant.jpg') }}">
+
+		<div class="contain">
+			<img width="100%" height="300px" src="{{ asset('images/enfant.jpg') }}">
+			<h3 class="centered">PLATEFORME DE GESTION DE PERMUTATION DU MINISTERE</h3>
+		</div>
 
 		<div class="row mt-5">
 			<h1 class=" h3 mt-5 mb-5 font-weight-normal text-center">Connexion</h1>
