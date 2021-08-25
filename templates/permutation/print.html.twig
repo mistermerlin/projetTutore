@@ -1,34 +1,63 @@
 {% extends "base.html.twig" %}
 
-
 {% block body %}
-
-	<div class="container">
-		<table class="table">
-			<thead>
-				<tr>
-
-					<th scope="col">Auteur</th>
-					<th scope="col">Localite actuelle</th>
-					<th scope="col">Localite souhaiter</th>
-					<th scope="col">Imprimer</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				{% for permutation in permutations %}
+	<div class="container mt-5 mx-auto">
+		<div class="shadow-lg p-3 mb-5 bg-body rounded mx-auto">
+			<h3>Emmeteur</h3>
+			<table class="table table-borderless">
+				<tbody>
 					<tr>
-						<td>{{ permutation.auteur }}
+						<td>Nom Complet</td>
+						<td>{{ permutation.auteur.nom }}
 							{{ permutation.auteur.prenoms }}</td>
-						<td>{{ permutation.auteur.localite }}</td>
-						<td>{{ permutation.destination }}</td>
-						<td>
-							<a class="btn btn-info" href="{{ path('permutation_print', { id: permutation.id }) }}" class="btn btn-sm btn-info">imprimer</a>
-						</td>
 					</tr>
-				{% endfor %}
-			</tbody>
-		</table>
-	</div>
+					<tr>
+						<td>E-mail</td>
+						<td>{{ permutation.auteur.email }}</td>
+					</tr>
+					<tr>
+						<td>Localite</td>
+						<td>{{ permutation.auteur.localite }}</td>
+					</tr>
+					<tr>
+						<td>Matricule</td>
+						<td>{{ permutation.auteur.matricule }}</td>
+					</tr>
+					<tr>
+						<td>Telephone</td>
+						<td>{{ permutation.auteur.tel }}</td>
+					</tr>
 
+				</tbody>
+			</table>
+			<h3>Interesse</h3>
+			<table class="table table-borderless">
+				<tbody>
+					<tr>
+						<td>Nom Complet</td>
+						<td>{{ permutation.interesse.nom }}
+							{{ permutation.interesse.prenoms }}</td>
+					</tr>
+					<tr>
+						<td>E-mail</td>
+						<td>{{ permutation.interesse.email }}</td>
+					</tr>
+					<tr>
+						<td>Localite</td>
+						<td>{{ permutation.interesse.localite }}</td>
+					</tr>
+					<tr>
+						<td>Matricule</td>
+						<td>{{ permutation.interesse.matricule }}</td>
+					</tr>
+					<tr>
+						<td>Telephone</td>
+						<td>{{ permutation.interesse.tel }}</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+
+	</div>
 {% endblock %}
