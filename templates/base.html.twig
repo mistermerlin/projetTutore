@@ -157,7 +157,50 @@
 		</header>
 
 		{% block body %}{% endblock %}
+		<footer>
+			<div class="p-5 mb-4 bg-light rounded-3 mt-5">
+				<div class="container-fluid py-5">
+					<div class="row">
+						<div class="col-md-4">
+							<img width="90%" height="90px" style="padding-top:4px;" src="https://www.presidence.ci/wp-content/uploads/2016/06/Armoirie-C%C3%B4te-divoire.png">
+						</div>
+						<div class="col-md-4">
+							<h4>MINISTÈRE DE L’ÉDUCATION NATIONALE ET DE L'ALPHABÉTISATION</h4><br>
+							<h4>UNIVERSITE VIRTUELLE DE COTE D'IVOIRE</h4>
+						</div>
 
+						<div class="col-md-4">
+							<ul class="nav flex-column">
+								<nav>
+									{% if app.user %}
+										<li>
+											<a href="{{ path('permutation') }}">accueil</a>
+										</li>
+										<li>
+											<a href="{{ path('permutation_new') }}">créer</a>
+										</li>
+										<li>
+											<a href="{{ path('permutation_view') }}">imprimer</a>
+										</li>
+										<li>
+											<a href="/logout">deconnexion</a>
+										</li>
+									{% else %}
+										<li>
+											<a href="{{ path('app_login') }}">connexion</a>
+										</li><br>
+										<li>
+											<a href="{{ path('app_register') }}">inscription</a>
+										</li>
+									{% endif %}
+								</nav>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</footer>
 		<!-- Optional JavaScript; choose one of the two! --><!-- Option 1: Bootstrap Bundle with Popper --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 	</body>
 </html>
