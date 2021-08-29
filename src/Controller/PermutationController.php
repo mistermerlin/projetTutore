@@ -120,4 +120,16 @@ class PermutationController extends AbstractController
             'permutation' => $permutation
         ]);
     }
+
+    /**
+     * @Route("/pdf/{id}", name= "permutation_pdf")
+     */
+
+    public function pdf(Permutation $permutation)
+    {
+
+        return $this->render('pdf/mypdf.html.twig', [
+            'permutation' => $permutation
+        ]);
+    }
 }

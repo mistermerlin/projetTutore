@@ -3,8 +3,17 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+		<style>
+			.text-lf {
+				float: left;
+			}
+			.text-rt {
+				float: right;
+			}
+		</style>
 	</head>
-	<body style="margin-left:250px; margin-right: 250px">
+	<body class="mt-5 container mb-5">
 		<section style="font-size: 13px;">
 			<div style="float: left">
 				<div>MINISTERE DE L'EDUCATION NATIONALE
@@ -21,77 +30,69 @@
 
 			<div style="padding-top: 100px;">
 				<center>
-					<h1>DEMANDE DE PERMUTATION
+					<h3>DEMANDE DE PERMUTATION
 						<br>
-						ANNEE SCOLAIRE 2021/ 2022</h1>
+						ANNEE SCOLAIRE 2021/ 2022</h3>
 				</center>
 
 				<div>
-					<strong></stro>NB: -Nul ne peut postuler en meme temps pour les INEAT, les EXEAT et les permutations.
-					<br>
-					<span style="margin-left: 2px;">-Toute demande d'EXEAT validée ne peut pas etre annulé</span>
-				</strong>
+					<h6>
+						<strong>NB: -Nul ne peut postuler en meme temps pour les INEAT, les EXEAT et les permutations.
+							<br>
+							<span style="margin-left: 2px;">-Toute demande d'EXEAT validée ne peut pas etre annulé</span>
+						</strong>
+					</h6>
+				</div>
 			</div>
-		</div>
+
+		</section>
+		<section class="mt-3 mb-3">
+			<h3 class="text-center">ENTRE</h3>
+			<div style="float: left;" class=" fs-5">
+				<div>Nom et Prénoms</div>
+				<div>Emploi</div>
+				<div>Direction Regionale</div>
+				<div>Matricule</div>
+				<div>Telephone</div>
+				<div>E-mail</div>
+
+			</div>
+			<div style="float: right;" class=" fs-5">
+				<div>{{ permutation.auteur.nom }}
+					{{ permutation.auteur.prenoms }}</div>
+				<div>Instituteur</div>
+				<div>{{ permutation.auteur.localite }}</div>
+				<div>{{ permutation.auteur.matricule}}</div>
+				<div>{{ permutation.auteur.tel}}</div>
+				<div>{{ permutation.auteur.email}}</div>
+
+			</div>
+
+
+		</section>
+		<section class="mt-5 mb-3">
+			<h4 style="margin-top:200px;" class="text-center">ET</h4>
+			<div style="margin-top:100px;">
+				<div style="float: left;" class=" fs-5">
+					<div>Nom et Prénoms</div>
+					<div>Emploi</div>
+					<div>Direction Regionale</div>
+					<div>Matricule</div>
+					<div>Telephone</div>
+					<div>E-mail</div>
+
+				</div>
+				<div style="float: right;" class="fs-5">
+					<div>{{ permutation.interesse.nom }}
+						{{ permutation.interesse.prenoms }}</div>
+					<div>Instituteur</div>
+					<div>{{ permutation.destination }}</div>
+					<div>{{ permutation.interesse.matricule}}</div>
+					<div>{{ permutation.interesse.tel}}</div>
+					<div>{{ permutation.interesse.email}}</div>
+				</div>
+			</div>
+
+		</section>
 	</body>
-</html></section><section>
-<h1>ENTRE</h1>
-<div>
-	<div style="float: left">
-		<div>Nom et Prénoms</div>
-		<div>Nom de jeune fille</div>
-		<div>Emploi</div>
-		<div>Direction Regionale</div>
-		<div>Etablissement ou Service</div>
-		<div>Discipline enseigné</div>
-		<div>Fonction exercé</div>
-	</div>
-	<div style="float: right;margin-right: 100px">
-		<div style="float:left">
-			<div>Date de naissance</div>
-			<div>Matricule</div>
-		</div>
-
-		<div style="margin-left: 100px;float: right">
-			<div>.......</div>
-			<div>.......</div>
-		</div>
-	</div>
-
-</div>
-<div>
-	<div style="margin-left: 250px">
-		<div>{{ auteur }}</div>
-		<div>.......</div>
-		<div>Instituteur</div>
-		<div>..................</div>
-		<div>.............</div>
-		<div>Enseignant</div>
-		<div>.......</div>
-
-	</div>
-
-
-</div></section><section>
-<h1>ET</h1>
-<div>
-	<div>Nom et Prénoms</div>
-	<div>Nom de jeune fille</div>
-	<div>Emploi</div>
-	<div>Direction Regionale</div>
-	<div>Etablissement ou Service</div>
-	<div>Discipline enseigné</div>
-	<div>Fonction exercé</div>
-	<div>Date de naissance</div>
-	<div>Matricule</div>
-</div>
-<div>
-	<div>{{ auteur }}</div>
-	<div>.......</div>
-	<div>Instituteur</div>
-	<div>..................</div>
-	<div>.............</div>
-	<div>Enseignant</div>
-	<div>.......</div>
-	<div>.......</div>
-</div></section></body></html>
+</html>
